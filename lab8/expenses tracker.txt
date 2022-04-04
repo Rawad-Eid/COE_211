@@ -1,0 +1,64 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ExpensesTracker {
+
+	public static void main(String[] args)throws IOException {
+		
+
+		Scanner scan = new Scanner(System.in);
+		
+		FileWriter fw = new FileWriter("expenses.txt");
+		
+		
+		String name_of_user, purchased_product, answer;
+		double purchase_amount;
+		
+		
+		
+		
+	try {
+		
+		do {
+		
+		System.out.println("Input your name: ");
+		name_of_user = scan.nextLine();
+		
+		
+		System.out.println("What did you purchase?: ");
+		purchased_product = scan.nextLine();
+		
+		
+		
+		System.out.println("How much did you pay? (in USD)");
+		purchase_amount = scan.nextDouble();
+		
+		fw.write("<" + name_of_user + ">" + "purchased" + "<" + purchased_product + ">" + "for" + "<" + purchase_amount + "> " + "US Dollars");
+		
+		System.out.println("Would you like to log another purchase? (y/n)");
+		answer = scan.next();
+		
+		}
+	while (answer.equals("y"));
+	
+			fw.close();
+			if (answer.equals("no")){
+			System.out.println("Get off of Zoodmall!");
+			}
+		
+
+			
+		}catch (IOException e) {
+	      System.out.println("An error occurred.");
+	      e.printStackTrace();
+	    
+	   }
+		
+	
+}
+}
+
+	
+	  
+	
